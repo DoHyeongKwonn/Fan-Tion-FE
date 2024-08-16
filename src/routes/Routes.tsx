@@ -1,3 +1,4 @@
+import CommunityPostComponents from '@components/CommunityPostComponents';
 import LoadingScreen from '@components/LoadingScreen';
 import NaverLoginCallback from '@components/NaverComponent/NaverLoginCallback';
 import ProtectedRoute from '@components/ProtectedRoute';
@@ -7,9 +8,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
   AuctionCreatePage,
   AuctionHistoryPage,
-  CommunityPage,
   AuctionModifyPage,
   CommunityListPage,
+  CommunityPage,
   DepositHistoryPage,
   DetailPage,
   EditorAuctionPage,
@@ -188,6 +189,14 @@ export default function Routes() {
           element: (
             <Suspense fallback={<LoadingScreenPage />}>
               <MainBoardPage />
+            </Suspense>
+          ),
+        },
+        {
+          path: 'community/new',
+          element: (
+            <Suspense fallback={<LoadingScreen />}>
+              <CommunityPostComponents />
             </Suspense>
           ),
         },
